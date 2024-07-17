@@ -18,7 +18,7 @@ struct RMListCellView: View {
                     .foregroundStyle(.accent)
                 
                 HStack(spacing: 4) {
-                    Text(character.status.rawValue)
+                    Text(character.status.getRawValue())
                         .foregroundStyle(character.statusColor)
                     Text("•")
                         .foregroundStyle(.accent)
@@ -27,7 +27,7 @@ struct RMListCellView: View {
                 }
                 .font(.custom("IBMPlexSans-SemiBold", size: 12))
                 
-                Text(character.gender.rawValue)
+                Text(character.gender.getRawValue())
                     .font(.custom("IBMPlexSans-Regular", size: 12))
                     .foregroundStyle(.accent)
             }
