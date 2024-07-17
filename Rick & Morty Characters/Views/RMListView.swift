@@ -4,16 +4,18 @@ struct RMListView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(0..<3) { index in
-                    Text("1")
-                        .foregroundStyle(.accent)
-                        .background(.green)
+                ForEach(0..<1) { index in
+                    RMListCellView(character: .mock)
+                        .contentShape(Rectangle())
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(Color.black)
+                        .listRowSeparator(.hidden)
                 }
-                .listRowBackground(Color.black)
-                .listRowSeparator(.hidden)
+                
             }
+            .listStyle(.plain)
+            .padding([.top, .bottom])
             .scrollContentBackground(.hidden)
-            .padding()
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("Rick & Morty Characters")

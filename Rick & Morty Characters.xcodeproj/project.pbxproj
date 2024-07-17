@@ -7,18 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A4C7868E2C47D6C100F663E2 /* Rick___Morty_CharactersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7868D2C47D6C100F663E2 /* Rick___Morty_CharactersApp.swift */; };
-		A4C786902C47D6C100F663E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7868F2C47D6C100F663E2 /* ContentView.swift */; };
+		A4C7868E2C47D6C100F663E2 /* RMCharactersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7868D2C47D6C100F663E2 /* RMCharactersApp.swift */; };
 		A4C786922C47D6C300F663E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C786912C47D6C300F663E2 /* Assets.xcassets */; };
 		A4C786952C47D6C300F663E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C786942C47D6C300F663E2 /* Preview Assets.xcassets */; };
+		A4C7869C2C47D74500F663E2 /* RMListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7869B2C47D74500F663E2 /* RMListView.swift */; };
+		A4C786A52C47D77E00F663E2 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C7869F2C47D77E00F663E2 /* Colors.xcassets */; };
+		A4C786A62C47D77E00F663E2 /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4C786A12C47D77E00F663E2 /* IBMPlexSans-Bold.ttf */; };
+		A4C786A92C47D8A500F663E2 /* RMListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C786A82C47D8A500F663E2 /* RMListCellView.swift */; };
+		A4C786AD2C47D94B00F663E2 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C786AC2C47D94B00F663E2 /* CharacterModel.swift */; };
+		A4C786AF2C47DDD700F663E2 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4C786AE2C47DDD700F663E2 /* IBMPlexSans-Medium.ttf */; };
+		A4C786B12C47DF1200F663E2 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4C786B02C47DF1200F663E2 /* IBMPlexSans-SemiBold.ttf */; };
+		A4C786B32C47E12200F663E2 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4C786B22C47E12200F663E2 /* IBMPlexSans-Regular.ttf */; };
+		A4C786B52C47E7DE00F663E2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C786B42C47E7DE00F663E2 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A4C7868A2C47D6C100F663E2 /* Rick & Morty Characters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rick & Morty Characters.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A4C7868D2C47D6C100F663E2 /* Rick___Morty_CharactersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rick___Morty_CharactersApp.swift"; sourceTree = "<group>"; };
-		A4C7868F2C47D6C100F663E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A4C7868D2C47D6C100F663E2 /* RMCharactersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharactersApp.swift; sourceTree = "<group>"; };
 		A4C786912C47D6C300F663E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4C786942C47D6C300F663E2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A4C7869B2C47D74500F663E2 /* RMListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMListView.swift; sourceTree = "<group>"; };
+		A4C7869F2C47D77E00F663E2 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		A4C786A12C47D77E00F663E2 /* IBMPlexSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Bold.ttf"; sourceTree = "<group>"; };
+		A4C786A72C47D86900F663E2 /* Rick---Morty-Characters-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Rick---Morty-Characters-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A4C786A82C47D8A500F663E2 /* RMListCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMListCellView.swift; sourceTree = "<group>"; };
+		A4C786AC2C47D94B00F663E2 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
+		A4C786AE2C47DDD700F663E2 /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
+		A4C786B02C47DF1200F663E2 /* IBMPlexSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		A4C786B22C47E12200F663E2 /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
+		A4C786B42C47E7DE00F663E2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +68,13 @@
 		A4C7868C2C47D6C100F663E2 /* Rick & Morty Characters */ = {
 			isa = PBXGroup;
 			children = (
-				A4C7868D2C47D6C100F663E2 /* Rick___Morty_CharactersApp.swift */,
-				A4C7868F2C47D6C100F663E2 /* ContentView.swift */,
-				A4C786912C47D6C300F663E2 /* Assets.xcassets */,
+				A4C786AB2C47D8C300F663E2 /* App */,
+				A4C786AA2C47D8B500F663E2 /* Views */,
+				A4C786A72C47D86900F663E2 /* Rick---Morty-Characters-Info.plist */,
+				A4C786A32C47D77E00F663E2 /* Resources */,
 				A4C786932C47D6C300F663E2 /* Preview Content */,
+				A4C786AC2C47D94B00F663E2 /* CharacterModel.swift */,
+				A4C786B42C47E7DE00F663E2 /* NetworkManager.swift */,
 			);
 			path = "Rick & Morty Characters";
 			sourceTree = "<group>";
@@ -65,6 +85,52 @@
 				A4C786942C47D6C300F663E2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A4C786A02C47D77E00F663E2 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				A4C786912C47D6C300F663E2 /* Assets.xcassets */,
+				A4C7869F2C47D77E00F663E2 /* Colors.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		A4C786A22C47D77E00F663E2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A4C786B22C47E12200F663E2 /* IBMPlexSans-Regular.ttf */,
+				A4C786B02C47DF1200F663E2 /* IBMPlexSans-SemiBold.ttf */,
+				A4C786AE2C47DDD700F663E2 /* IBMPlexSans-Medium.ttf */,
+				A4C786A12C47D77E00F663E2 /* IBMPlexSans-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A4C786A32C47D77E00F663E2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A4C786A02C47D77E00F663E2 /* Assets */,
+				A4C786A22C47D77E00F663E2 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A4C786AA2C47D8B500F663E2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A4C786A82C47D8A500F663E2 /* RMListCellView.swift */,
+				A4C7869B2C47D74500F663E2 /* RMListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A4C786AB2C47D8C300F663E2 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A4C7868D2C47D6C100F663E2 /* RMCharactersApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +192,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4C786952C47D6C300F663E2 /* Preview Assets.xcassets in Resources */,
+				A4C786A62C47D77E00F663E2 /* IBMPlexSans-Bold.ttf in Resources */,
+				A4C786B32C47E12200F663E2 /* IBMPlexSans-Regular.ttf in Resources */,
+				A4C786A52C47D77E00F663E2 /* Colors.xcassets in Resources */,
 				A4C786922C47D6C300F663E2 /* Assets.xcassets in Resources */,
+				A4C786B12C47DF1200F663E2 /* IBMPlexSans-SemiBold.ttf in Resources */,
+				A4C786AF2C47DDD700F663E2 /* IBMPlexSans-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +208,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4C786902C47D6C100F663E2 /* ContentView.swift in Sources */,
-				A4C7868E2C47D6C100F663E2 /* Rick___Morty_CharactersApp.swift in Sources */,
+				A4C786A92C47D8A500F663E2 /* RMListCellView.swift in Sources */,
+				A4C786AD2C47D94B00F663E2 /* CharacterModel.swift in Sources */,
+				A4C786B52C47E7DE00F663E2 /* NetworkManager.swift in Sources */,
+				A4C7868E2C47D6C100F663E2 /* RMCharactersApp.swift in Sources */,
+				A4C7869C2C47D74500F663E2 /* RMListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +349,7 @@
 				DEVELOPMENT_TEAM = 82HCH9V652;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Rick---Morty-Characters-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +379,7 @@
 				DEVELOPMENT_TEAM = 82HCH9V652;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Rick---Morty-Characters-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

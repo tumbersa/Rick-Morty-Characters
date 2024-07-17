@@ -1,8 +1,10 @@
-//
-//  NetworkManager.swift
-//  Rick & Morty Characters
-//
-//  Created by Глеб Капустин on 17.07.2024.
-//
-
 import Foundation
+
+final class NetworkManager {
+    static let shared = NetworkManager()
+    private init {}
+    
+    func fetchCharacters() {
+        
+    }
+}
