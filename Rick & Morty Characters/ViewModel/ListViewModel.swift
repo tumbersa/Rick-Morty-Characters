@@ -62,8 +62,13 @@ final class ListViewModel: ObservableObject {
             if (error as NSError).code == NSURLErrorCancelled {
                 debugPrint("Request was cancelled: \(error)")
             } else {
-                showNoInternetAlert = true
-                debugPrint("Error fetching characters: \(error)")
+                if let error = (error as? RMError),
+                   error == .invalidResponce {
+                    debugPrint("Invalid Responce: \(error)")
+                } else {
+                    showNoInternetAlert = true
+                    debugPrint("Error fetching characters: \(error)")
+                }
             }
            
         }
