@@ -1,10 +1,9 @@
 import Foundation
 import Combine
 
-final class ViewModel: ObservableObject {
+final class ListViewModel: ObservableObject {
     @Published private(set) var characters: [CharacterModel] = []
     @Published private(set) var isLoading = false
-    @Published private(set) var episodes: String = ""
     @Published var searchText = ""
     
     var filteredCharacters: [CharacterModel] {
@@ -14,8 +13,8 @@ final class ViewModel: ObservableObject {
         }
     }
     
-    private var cancellable: AnyCancellable?
     private var page = 0
+    private var filteredPage = 0
     
     @MainActor
     func fetchCharacters() async {
@@ -41,14 +40,22 @@ final class ViewModel: ObservableObject {
         self.isLoading = false
     }
     
-    
     @MainActor
-    func fetchEpisodes(episodes: String) async {
+    func fetchFilteredCharacters(selectedStatus: CharacterModel.Status?, selectedGender: CharacterModel.Gender?, isRefreshPage: Bool = false) async {
         
-        self.episodes = ""
+        if isRefreshPage {
+            characters = []
+            filteredPage = 0
+        }
+        
+        filteredPage += 1
+        
+        
         do {
-            let fetchedEpisodes = try await NetworkManager.shared.fetchEpisodes(episodes: episodes)
-            self.episodes = fetchedEpisodes.map { $0.name }.joined(separator: ", ")
+           
+            let fetchedCharacters = try await NetworkManager.shared.fetchFilteredCharacters(page: filteredPage, status: selectedStatus, gender: selectedGender)
+            self.characters += fetchedCharacters
+            
         } catch {
             
             if (error as NSError).code == NSURLErrorCancelled {
@@ -56,7 +63,7 @@ final class ViewModel: ObservableObject {
             } else {
                 debugPrint("Error fetching characters: \(error)")
             }
-            
+           
         }
     }
     
@@ -64,8 +71,5 @@ final class ViewModel: ObservableObject {
         characters.last == character
     }
     
-    deinit {
-        cancellable?.cancel()
-    }
 }
 

@@ -15,23 +15,21 @@ struct Info: Decodable {
 
 // MARK: - CharacterModel
 struct CharacterModel: Decodable {
-    enum Status: String, Decodable {
+    enum Status: String, Decodable, CaseIterable {
         case dead = "Dead"
         case alive = "Alive"
-        case aliveImmortal = "Alive (Immortal)"
         case unknown = "unknown"
         
         func getRawValue() -> String {
             switch self {
             case .dead: "Dead"
             case .alive: "Alive"
-            case .aliveImmortal: "Alive (Immortal)"
             case .unknown: "Unknown"
             }
         }
     }
     
-    enum Gender: String, Decodable {
+    enum Gender: String, Decodable, CaseIterable {
         case female = "Female"
         case male = "Male"
         case genderless = "Genderless"
@@ -76,7 +74,7 @@ struct CharacterModel: Decodable {
 extension CharacterModel {
     var statusColor: Color {
         switch self.status {
-        case .alive, .aliveImmortal: Color.green2
+        case .alive: Color.green2
         case .dead: Color.red2
         case .unknown: Color.gray2
         }

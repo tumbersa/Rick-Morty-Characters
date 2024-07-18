@@ -4,7 +4,7 @@ import SwiftUI
 struct RMCharactersApp: App {
     var body: some Scene {
         WindowGroup {
-            RMListView(viewModel: ViewModel())
+            RMListView(viewModel: ListViewModel())
         }
     }
 }

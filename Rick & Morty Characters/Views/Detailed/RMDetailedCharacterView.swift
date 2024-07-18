@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RMDetailedCharacterView: View {
     
-    @ObservedObject var viewModel: ViewModel
+    @StateObject var viewModel: DetailedListViewModel
     
     let character: CharacterModel
     
@@ -92,5 +92,5 @@ struct RMDetailedCharacterView: View {
 }
 
 #Preview {
-    RMDetailedCharacterView(viewModel: ViewModel(), character: CharacterModel.mock)
+    RMDetailedCharacterView(viewModel: DetailedListViewModel(), character: CharacterModel.mock)
 }
