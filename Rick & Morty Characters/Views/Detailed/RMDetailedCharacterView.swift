@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RMDetailedCharacterView: View {
     
-    @StateObject var viewModel: DetailedListViewModel
+    @ObservedObject var viewModel: DetailedListViewModel
     
     let character: CharacterModel
     
@@ -88,6 +88,9 @@ struct RMDetailedCharacterView: View {
         .task {
             await viewModel.fetchEpisodes(episodes: character.getEpisodes())
         }
+        .sheet(isPresented: $viewModel.showNoInternetAlert, content: {
+            RMNoInternetView()
+        })
     }
 }
 

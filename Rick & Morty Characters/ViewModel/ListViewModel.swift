@@ -5,6 +5,7 @@ final class ListViewModel: ObservableObject {
     @Published private(set) var characters: [CharacterModel] = []
     @Published private(set) var isLoading = false
     @Published var searchText = ""
+    @Published var showNoInternetAlert: Bool = false
     
     var filteredCharacters: [CharacterModel] {
         guard !searchText.isEmpty else { return characters }
@@ -32,6 +33,7 @@ final class ListViewModel: ObservableObject {
             if (error as NSError).code == NSURLErrorCancelled {
                 debugPrint("Request was cancelled: \(error)")
             } else {
+                showNoInternetAlert = true
                 debugPrint("Error fetching characters: \(error)")
             }
             page -= 1
@@ -50,7 +52,6 @@ final class ListViewModel: ObservableObject {
         
         filteredPage += 1
         
-        
         do {
            
             let fetchedCharacters = try await NetworkManager.shared.fetchFilteredCharacters(page: filteredPage, status: selectedStatus, gender: selectedGender)
@@ -61,6 +62,7 @@ final class ListViewModel: ObservableObject {
             if (error as NSError).code == NSURLErrorCancelled {
                 debugPrint("Request was cancelled: \(error)")
             } else {
+                showNoInternetAlert = true
                 debugPrint("Error fetching characters: \(error)")
             }
            

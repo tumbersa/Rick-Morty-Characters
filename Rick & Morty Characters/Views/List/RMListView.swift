@@ -2,10 +2,11 @@ import SwiftUI
 
 struct RMListView: View {
     
-    @StateObject var viewModel: ListViewModel
+    @StateObject var listViewModel: ListViewModel
+    @StateObject var detailedViewModel: DetailedListViewModel
     
     @State private var isLoading = false
-    @State private var showSheet = false
+    @State private var showFiltersSheet = false
     
     @State private var selectedStatus: CharacterModel.Status?
     @State private var selectedGender: CharacterModel.Gender?
@@ -21,7 +22,7 @@ struct RMListView: View {
                     searchBar
                     
                     Button(action: {
-                        showSheet.toggle()
+                        showFiltersSheet.toggle()
                     }, label: {
                         Image(.filterIcon)
                             .renderingMode(.template)
@@ -54,7 +55,7 @@ struct RMListView: View {
                             selectedGender = nil
                             selectedStatus = nil
                             Task {
-                                await viewModel.fetchFilteredCharacters(selectedStatus: selectedStatus, selectedGender: selectedGender, isRefreshPage: true)
+                                await listViewModel.fetchFilteredCharacters(selectedStatus: selectedStatus, selectedGender: selectedGender, isRefreshPage: true)
                             }
                         }, label: {
                             Text("Reset all filters")
@@ -73,14 +74,14 @@ struct RMListView: View {
                 }
                 
                 
-                if viewModel.filteredCharacters.isEmpty && !isLoading {
+                if listViewModel.filteredCharacters.isEmpty && !isLoading {
                     RMNoMatchesView()
                     
                     Spacer()
                 } else {
                     List {
                         
-                        ForEach(viewModel.filteredCharacters, id: \.id) { character in
+                        ForEach(listViewModel.filteredCharacters, id: \.id) { character in
                             VStack(spacing: 0) {
                                 NavigationLink {
                                     RMDetailedCharacterView(viewModel: DetailedListViewModel(),character: character)
@@ -89,11 +90,11 @@ struct RMListView: View {
                                     RMListCellView(character: character)
                                 }
                                 .task {
-                                    if viewModel.hasLast(character: character) {
-                                        await isFiltered ? viewModel.fetchFilteredCharacters(
+                                    if listViewModel.hasLast(character: character) {
+                                        await isFiltered ? listViewModel.fetchFilteredCharacters(
                                             selectedStatus: selectedStatus,
                                             selectedGender: selectedGender
-                                        ) : viewModel.fetchCharacters()
+                                        ) : listViewModel.fetchCharacters()
                                     }
                                     
                                 }
@@ -129,23 +130,26 @@ struct RMListView: View {
             .navigationBarTitleDisplayMode(.inline)
             .background(Color(UIColor.label))
             .task {
-                await viewModel.fetchCharacters()
+                await listViewModel.fetchCharacters()
             }
-            .onChange(of: viewModel.isLoading) { _, newValue in
+            .onChange(of: listViewModel.isLoading) { _, newValue in
                 isLoading = newValue
             }
             
         }
         .ignoresSafeArea(.keyboard)
-        .sheet(isPresented: $showSheet, onDismiss: {
+        .sheet(isPresented: $showFiltersSheet, onDismiss: {
             Task {
-                await viewModel.fetchFilteredCharacters(selectedStatus: selectedStatus, selectedGender: selectedGender, isRefreshPage: true)
+                await listViewModel.fetchFilteredCharacters(selectedStatus: selectedStatus, selectedGender: selectedGender, isRefreshPage: true)
             }
         }, content: {
-            RMMenuFiltersView(showSheet: $showSheet,
+            RMMenuFiltersView(showSheet: $showFiltersSheet,
                               selectedStatus: $selectedStatus,
                               selectedGender: $selectedGender)
                 .presentationDetents([.fraction(0.4)])
+        })
+        .sheet(isPresented: $listViewModel.showNoInternetAlert, content: {
+            RMNoInternetView()
         })
     }
     
@@ -153,7 +157,7 @@ struct RMListView: View {
         HStack {
             Image(.searchIcon)
                 
-            TextField("", text: $viewModel.searchText, prompt: Text("Search").foregroundStyle(.white))
+            TextField("", text: $listViewModel.searchText, prompt: Text("Search").foregroundStyle(.white))
                 .font(.custom("IBMPlexSans-Regular", size: 14))
                 .foregroundStyle(.white)
         }
@@ -168,5 +172,5 @@ struct RMListView: View {
 }
 
 #Preview {
-    RMListView(viewModel: ListViewModel())
+    RMListView(listViewModel: ListViewModel(), detailedViewModel: DetailedListViewModel())
 }
