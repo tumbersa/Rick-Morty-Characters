@@ -9,42 +9,62 @@ struct RMListView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                List {
-                    ForEach(viewModel.characters, id: \.id) { character in
-                        VStack(spacing: 0) {
-                            NavigationLink {
-                                RMDetailedCharacterView(viewModel: viewModel,character: character)
-                                    .toolbarRole(.editor)
-                            } label: {
-                                RMListCellView(character: character)
-                            }
-                            .task {
-                                if viewModel.hasLast(character: character) {
-                                    await viewModel.fetchCharacters()
+                HStack {
+                    searchBar
+                    
+                    Button(action: {
+                        
+                    }, label: {
+                        Image(.filterIcon)
+                    })
+                }
+                .padding([.leading, .trailing])
+                
+                
+                if viewModel.filteredCharacters.isEmpty {
+                    RMNoMatchesView()
+                        //.listRowBackground(Color.black)
+                    
+                    Spacer()
+                } else {
+                    List {
+                        
+                        ForEach(viewModel.filteredCharacters, id: \.id) { character in
+                            VStack(spacing: 0) {
+                                NavigationLink {
+                                    RMDetailedCharacterView(viewModel: viewModel,character: character)
+                                        .toolbarRole(.editor)
+                                } label: {
+                                    RMListCellView(character: character)
                                 }
+                                .task {
+                                    if viewModel.hasLast(character: character) {
+                                        await viewModel.fetchCharacters()
+                                    }
+                                    
+                                }
+                                Spacer().frame(height: 4)
                                 
                             }
-                            Spacer().frame(height: 4)
-
+                            .contentShape(Rectangle())
+                            .listRowInsets(EdgeInsets())
+                            .listRowBackground(Color.black)
+                            .listRowSeparator(.hidden)
                         }
-                        .contentShape(Rectangle())
-                        .listRowInsets(EdgeInsets())
-                        .listRowBackground(Color.black)
-                        .listRowSeparator(.hidden)
                     }
-                }
-                .listStyle(.plain)
-                .padding([.top, .bottom])
-                .scrollContentBackground(.hidden)
-                
-                if isLoading {
+                    .listStyle(.plain)
+                    .padding([.top, .bottom])
+                    .scrollContentBackground(.hidden)
+                    
+                    
+                    if isLoading {
                         ProgressView()
                             .controlSize(.large)
                             .frame(width: 40, height: 40)
                             .tint(.gray2)
+                    }
                 }
             }
-           
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("Rick & Morty Characters")
@@ -53,7 +73,6 @@ struct RMListView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .containerRelativeFrame([.horizontal, .vertical])
             .background(Color(UIColor.label))
             .task {
                 await viewModel.fetchCharacters()
@@ -63,6 +82,20 @@ struct RMListView: View {
             }
             
         }
+        .ignoresSafeArea(.keyboard)
+    }
+    
+    var searchBar: some View {
+        HStack {
+            Image(.searchIcon)
+                
+            TextField("", text: $viewModel.searchText, prompt: Text("Search").foregroundStyle(.white))
+                .font(.custom("IBMPlexSans-Regular", size: 14))
+                .foregroundStyle(.white)
+        }
+        .padding(12)
+        .background(Color.black)
+        .cornerRadius(50)
     }
 }
 

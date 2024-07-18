@@ -5,6 +5,14 @@ final class ViewModel: ObservableObject {
     @Published private(set) var characters: [CharacterModel] = []
     @Published private(set) var isLoading = false
     @Published private(set) var episodes: String = ""
+    @Published var searchText = ""
+    
+    var filteredCharacters: [CharacterModel] {
+        guard !searchText.isEmpty else { return characters }
+        return characters.filter { character in
+            character.name.lowercased().contains(searchText.lowercased())
+        }
+    }
     
     private var cancellable: AnyCancellable?
     private var page = 0

@@ -24,6 +24,7 @@
 		A4C786B52C47E7DE00F663E2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C786B42C47E7DE00F663E2 /* NetworkManager.swift */; };
 		A4D77D1D2C4851BC0005C3A6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D77D1C2C4851BC0005C3A6 /* ViewModel.swift */; };
 		A4E2E4EF2C49161D00CF8FF0 /* EpisodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E2E4EE2C49161D00CF8FF0 /* EpisodesModel.swift */; };
+		A4E2E4F42C49321F00CF8FF0 /* RMNoMatchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E2E4F32C49321F00CF8FF0 /* RMNoMatchesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		A4C786B42C47E7DE00F663E2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A4D77D1C2C4851BC0005C3A6 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		A4E2E4EE2C49161D00CF8FF0 /* EpisodesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesModel.swift; sourceTree = "<group>"; };
+		A4E2E4F32C49321F00CF8FF0 /* RMNoMatchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMNoMatchesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				A4C786A82C47D8A500F663E2 /* RMListCellView.swift */,
 				A4C7869B2C47D74500F663E2 /* RMListView.swift */,
 				A4184F1F2C47FDAD00E0C60C /* RMDetailedCharacterView.swift */,
+				A4E2E4F32C49321F00CF8FF0 /* RMNoMatchesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				A4184F1E2C47F6B500E0C60C /* RMError.swift in Sources */,
 				A4C786AD2C47D94B00F663E2 /* CharacterModel.swift in Sources */,
 				A4E2E4EF2C49161D00CF8FF0 /* EpisodesModel.swift in Sources */,
+				A4E2E4F42C49321F00CF8FF0 /* RMNoMatchesView.swift in Sources */,
 				A4C786B52C47E7DE00F663E2 /* NetworkManager.swift in Sources */,
 				A4C7868E2C47D6C100F663E2 /* RMCharactersApp.swift in Sources */,
 				A4184F202C47FDAD00E0C60C /* RMDetailedCharacterView.swift in Sources */,
