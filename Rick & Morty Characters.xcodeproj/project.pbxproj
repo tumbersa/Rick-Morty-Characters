@@ -22,6 +22,7 @@
 		A4C786B12C47DF1200F663E2 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4C786B02C47DF1200F663E2 /* IBMPlexSans-SemiBold.ttf */; };
 		A4C786B32C47E12200F663E2 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4C786B22C47E12200F663E2 /* IBMPlexSans-Regular.ttf */; };
 		A4C786B52C47E7DE00F663E2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C786B42C47E7DE00F663E2 /* NetworkManager.swift */; };
+		A4D77D1D2C4851BC0005C3A6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D77D1C2C4851BC0005C3A6 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		A4C786B02C47DF1200F663E2 /* IBMPlexSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		A4C786B22C47E12200F663E2 /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
 		A4C786B42C47E7DE00F663E2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		A4D77D1C2C4851BC0005C3A6 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				A4C786A72C47D86900F663E2 /* Rick---Morty-Characters-Info.plist */,
 				A4184F2E2C480BF400E0C60C /* Launch Screen.storyboard */,
 				A4C786932C47D6C300F663E2 /* Preview Content */,
+				A4D77D1C2C4851BC0005C3A6 /* ViewModel.swift */,
 			);
 			path = "Rick & Morty Characters";
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				A4C786B52C47E7DE00F663E2 /* NetworkManager.swift in Sources */,
 				A4C7868E2C47D6C100F663E2 /* RMCharactersApp.swift in Sources */,
 				A4184F202C47FDAD00E0C60C /* RMDetailedCharacterView.swift in Sources */,
+				A4D77D1D2C4851BC0005C3A6 /* ViewModel.swift in Sources */,
 				A4C7869C2C47D74500F663E2 /* RMListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

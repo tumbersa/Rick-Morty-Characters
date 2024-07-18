@@ -2,32 +2,51 @@ import SwiftUI
 
 struct RMListView: View {
     
+    @StateObject var viewModel: ViewModel
     @State private var page = 1
-    @State private var characters: [CharacterModel] = []
+    @State private var isLoading = false
     
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(characters, id: \.name) { character in
-                    VStack(spacing: 0) {
-                        NavigationLink {
-                            RMDetailedCharacterView(character: character)
-                                .toolbarRole(.editor)
-                        } label: {
-                            RMListCellView(character: character)
+            VStack {
+                List {
+                    ForEach(viewModel.characters, id: \.id) { character in
+                        VStack(spacing: 0) {
+                            NavigationLink {
+                                RMDetailedCharacterView(character: character)
+                                    .toolbarRole(.editor)
+                            } label: {
+                                RMListCellView(character: character)
+                            }
+                            .task {
+                                if viewModel.hasLast(character: character) {
+                                    await viewModel.fetchCharacters()
+                                }
+                                
+                            }
+                            
+                            Spacer().frame(height: 4)
+                            
+                            
                         }
-                        
-                        Spacer().frame(height: 4)
+                        .contentShape(Rectangle())
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(Color.black)
+                        .listRowSeparator(.hidden)
                     }
-                    .contentShape(Rectangle())
-                    .listRowInsets(EdgeInsets())
-                    .listRowBackground(Color.black)
-                    .listRowSeparator(.hidden)
+                }
+                .listStyle(.plain)
+                .padding([.top, .bottom])
+                .scrollContentBackground(.hidden)
+                
+                if isLoading {
+                        ProgressView()
+                            .scaleEffect(1.5)
+                            .frame(width: 40, height: 40)
+                            .tint(.gray2)
                 }
             }
-            .listStyle(.plain)
-            .padding([.top, .bottom])
-            .scrollContentBackground(.hidden)
+           
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("Rick & Morty Characters")
@@ -38,20 +57,17 @@ struct RMListView: View {
             .navigationBarTitleDisplayMode(.inline)
             .containerRelativeFrame([.horizontal, .vertical])
             .background(Color(UIColor.label))
-            .onAppear {
-                Task {
-                    do {
-                        self.characters = try await NetworkManager.shared.fetchCharacters(page: page)
-                        print(characters)
-                    } catch {
-                        debugPrint(error)
-                    }
-                }
+            .task {
+                await viewModel.fetchCharacters()
             }
+            .onChange(of: viewModel.isLoading) { _, newValue in
+                isLoading = newValue
+            }
+            
         }
     }
 }
 
 #Preview {
-    RMListView()
+    RMListView(viewModel: ViewModel())
 }

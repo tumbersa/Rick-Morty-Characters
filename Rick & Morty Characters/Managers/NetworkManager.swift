@@ -19,6 +19,7 @@ final class NetworkManager {
         
         guard let responce = responce as? HTTPURLResponse,
               200..<300 ~= responce.statusCode  else {
+            debugPrint((responce as? HTTPURLResponse)?.statusCode as Any)
             throw RMError.invalidResponce
         }
         

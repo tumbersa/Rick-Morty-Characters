@@ -34,7 +34,7 @@ inscriptionLaunchScreen</string>
                             <constraint firstItem="W8H-r4-kbU" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="303" id="THL-Mo-deU"/>
                             <constraint firstItem="ykO-Ko-Mk4" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="TU5-04-QDU"/>
                             <constraint firstAttribute="trailing" secondItem="ykO-Ko-Mk4" secondAttribute="trailing" id="ZtP-RV-6d3"/>
-                            <constraint firstItem="W8H-r4-kbU" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="39" id="wyn-Ri-2nB"/>
+                            <constraint firstItem="W8H-r4-kbU" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="39" id="wyn-Ri-2nB"/>
                         </constraints>
                     </view>
                 </viewController>

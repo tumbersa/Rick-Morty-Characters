@@ -52,6 +52,7 @@ struct CharacterModel: Decodable {
         let url: String
     }
     
+    let id: Int
     let name: String
     let imagePath: String
     let status: Status
@@ -61,6 +62,7 @@ struct CharacterModel: Decodable {
     let location: Location
     
     enum CodingKeys: String, CodingKey {
+        case id
         case name
         case imagePath = "image"
         case status
@@ -93,11 +95,18 @@ extension CharacterModel {
         
     }
     
-    static let mock = CharacterModel(name: "Toxic Rick",
+    static let mock = CharacterModel(id: 1,
+                                     name: "Toxic Rick",
                                      imagePath: "https://rickandmortyapi.com/api/character/avatar/361.jpeg",
                                      status: .dead,
                                      gender: .male,
                                      species: "Humanoid",
                                      episode: ["https://rickandmortyapi.com/api/episode/27"], 
                                      location: CharacterModel.Location(name: "Earth", url: ""))
+}
+
+extension CharacterModel: Equatable {
+    static func == (lhs: CharacterModel, rhs: CharacterModel) -> Bool {
+        lhs.id == rhs.id
+    }
 }
