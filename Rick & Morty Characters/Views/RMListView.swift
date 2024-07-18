@@ -13,7 +13,7 @@ struct RMListView: View {
                     ForEach(viewModel.characters, id: \.id) { character in
                         VStack(spacing: 0) {
                             NavigationLink {
-                                RMDetailedCharacterView(character: character)
+                                RMDetailedCharacterView(viewModel: viewModel,character: character)
                                     .toolbarRole(.editor)
                             } label: {
                                 RMListCellView(character: character)
@@ -24,10 +24,8 @@ struct RMListView: View {
                                 }
                                 
                             }
-                            
                             Spacer().frame(height: 4)
-                            
-                            
+
                         }
                         .contentShape(Rectangle())
                         .listRowInsets(EdgeInsets())
@@ -41,7 +39,7 @@ struct RMListView: View {
                 
                 if isLoading {
                         ProgressView()
-                            .scaleEffect(1.5)
+                            .controlSize(.large)
                             .frame(width: 40, height: 40)
                             .tint(.gray2)
                 }
